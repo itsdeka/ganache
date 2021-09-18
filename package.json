@@ -16,7 +16,7 @@
     "reinstall": "npm run clean && npm install",
     "release": "npm run tsc.clean && npm run tsc && npm test && npm run build && lerna publish --yes --canary --no-git-reset --preid canary --dist-tag canary --force-publish --exact && npm run docs.build",
     "prepublishOnly": "ts-node ./scripts/filter-shrinkwrap.ts \"$(lerna list --parseable --scope ganache)\"/npm-shrinkwrap.json",
-    "start": "lerna exec --loglevel=silent --scope ganache -- npm run start --silent -- ",
+    "start": "lerna exec --loglevel=silent --scope ganache -- npm run start --silent -- --fork https://eth-mainnet.alchemyapi.io/v2/KJ-t6h7aDgZA3S4POYuHOohfAAyy8nI2 -e 10000 -s 'bfx' --gasLimit 555555555555555555555",
     "test": "lerna exec --concurrency 1 -- npm run test",
     "tsc": "ttsc --build src",
     "tsc.clean": "npx lerna exec -- npx shx rm -rf lib dist typings"
